@@ -26,17 +26,7 @@ export default defineConfig({
   },
   // umi routes: https://umijs.org/docs/routing
   routes: [
-    {
-      path: '/user',
-      component: '../layouts/UserLayout',
-      routes: [
-        {
-          name: 'login',
-          path: '/user/login',
-          component: './user/login',
-        },
-      ],
-    },
+    //删除routes部分即可自动判定为约定式路由模式
     {
       path: '/',
       // component: '../layouts/SecurityLayout',
@@ -73,26 +63,34 @@ export default defineConfig({
               ],
             },
             {
-              name: '订单信息',
-              icon: 'table',
+              // name: '订单信息',
+              name: 'orderInfo',
               path: '/orderInfo',
-              component: './orderInfo',
+              component: '@/pages/orderInfo',
             },
             {
-              name: '财富宝费用信息',
+              // name: '财富宝费用信息',
+              name: 'costInfo',
               path: '/orderInfo/costInfo',
-              component: './orderInfo/costInfo',
+              component: '@/pages/costInfo',
             },
             {
-              name: '列表页',
-              icon: 'table',
-              path: '/monitorMailList',
-              component: './ListTableList',
+              // name: '费用明细（计费中）',
+              name: 'paying',
+              path: '/orderInfo/costInfo/paying',
+              component: '@/pages/costInfo/costDetail',
             },
             {
-              name: 'mail-detail',
-              path: './monitorMailList/mail-detail',
-              component: './ListTableList/mailDetail',
+              // name: '费用明细（待扣款、扣款成功、扣款失败）',
+              name: 'Deductioning',
+              path: '/orderInfo/costInfo/Deductioning',
+              component: '@/pages/costInfo/costDetail/Deductioning',
+            },
+            {
+              // name: '历史账单',
+              name: 'HistoryList',
+              path: '/orderInfo/costInfo/HistoryList',
+              component: '@/pages/costInfo/costDetail/HistoryList',
             },
             {
               component: './404',

@@ -36,7 +36,7 @@ export default () => (
       <Col span={12}>
         <Link
           to={{
-            pathname: '/recieversList',
+            pathname: '/orderInfo/costInfo/costDetail/Deductioning',
           }}
         >
           {' '}
@@ -50,7 +50,7 @@ export default () => (
       <Col span={12}>
         <Link
           to={{
-            pathname: '/recieversList',
+            pathname: '/orderInfo/costInfo/costDetail/HistoryList',
           }}
         >
           {' '}

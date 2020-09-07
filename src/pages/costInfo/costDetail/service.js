@@ -1,5 +1,12 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-28 15:24:40
+ * @LastEditTime: 2020-08-28 15:24:43
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \weath\src\pages\orderInfo\costInfo\costDetail\service.js
+ */
 import request from '@/utils/request'
-console.log({ window })
 
 export async function queryRule(params) {
   return request('/api/rule', {

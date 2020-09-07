@@ -12,7 +12,11 @@ import {
 } from 'antd'
 import { Link } from 'umi'
 import React, { useState, useRef } from 'react'
-import { PageContainer, FooterToolbar } from '@ant-design/pro-layout'
+import {
+  PageContainer,
+  FooterToolbar,
+  PageHeaderWrapper,
+} from '@ant-design/pro-layout'
 import ProTable from '@ant-design/pro-table'
 import { queryRule, updateRule, addRule, removeRule } from './service'
 
@@ -34,6 +38,9 @@ const OrderInfo = () => {
     {
       title: '商品名称',
       dataIndex: 'desc',
+      formItemProps: {
+        placeholder: '请输入商品名称',
+      },
     },
     {
       title: '下单时间',
@@ -62,6 +69,10 @@ const OrderInfo = () => {
         3: { text: '审核未通过' },
         4: { text: '待审核' },
       },
+      formItemProps: {
+        defaultValue: '全部',
+        placeholder: '请选择订单状态',
+      },
     },
     {
       title: '费用信息',
@@ -72,7 +83,7 @@ const OrderInfo = () => {
         if ('1') {
           return (
             <Link
-              target="_blank"
+              // target="_blank"
               to={{
                 pathname: '/orderInfo/costInfo',
                 // search: `?mailSubject=${desc}`,
@@ -89,7 +100,7 @@ const OrderInfo = () => {
     },
   ]
   return (
-    <PageContainer>
+    <PageHeaderWrapper>
       <Card>
         <Tabs defaultActiveKey="1" /* onChange={callback} */>
           <TabPane tab="财富工作室" key="1">
@@ -100,12 +111,15 @@ const OrderInfo = () => {
               request={(params, sorter, filter) =>
                 queryRule({ ...params, sorter, filter })
               }
-              pagination={{ pageSizeOptions: ['10', '20', '50'] }}
+              pagination={{
+                pageSizeOptions: ['10', '20', '50'],
+                defaultPageSize: 10,
+              }}
               columns={columns}
               options={false}
               collapsed={false}
               search={{
-                span: 6,
+                span: 8,
                 resetText: '',
                 searchText: '搜索',
                 collapsed: false,
@@ -124,7 +138,7 @@ const OrderInfo = () => {
           </TabPane>
         </Tabs>
       </Card>
-    </PageContainer>
+    </PageHeaderWrapper>
   )
 }
 

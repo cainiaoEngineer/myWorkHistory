@@ -3,7 +3,7 @@
  * You can view component api by:
  * https://github.com/ant-design/ant-design-pro-layout
  */
-import ProLayout, { DefaultFooter } from '@ant-design/pro-layout'
+import ProLayout, { DefaultFooter, SettingDrawer } from '@ant-design/pro-layout'
 import React, { useEffect } from 'react'
 import { Link, useIntl, connect, history } from 'umi'
 import { GithubOutlined } from '@ant-design/icons'
@@ -105,49 +105,60 @@ const BasicLayout = (props) => {
   }
   const { formatMessage } = useIntl()
   return (
-    <ProLayout
-      logo={logo}
-      formatMessage={formatMessage}
-      onCollapse={handleMenuCollapse}
-      onMenuHeaderClick={() => history.push('/')}
-      menuItemRender={(menuItemProps, defaultDom) => {
-        if (menuItemProps.isUrl || !menuItemProps.path) {
-          return defaultDom
-        }
+    <>
+      <ProLayout
+        logo={logo}
+        formatMessage={formatMessage}
+        onCollapse={handleMenuCollapse}
+        onMenuHeaderClick={() => history.push('/')}
+        menuItemRender={(menuItemProps, defaultDom) => {
+          if (menuItemProps.isUrl || !menuItemProps.path) {
+            return defaultDom
+          }
 
-        return <Link to={menuItemProps.path}>{defaultDom}</Link>
-      }}
-      breadcrumbRender={(routers = []) => [
-        // {
-        //   path: '/',
-        //   breadcrumbName: formatMessage({
-        //     id: 'menu.home',
-        //   }),
-        // },
-        ...routers,
-      ]}
-      itemRender={(route, params, routes, paths) => {
-        const first = routes.indexOf(route) === 0
-        const routeItem = route.path.split('/').pop()
-        // console.log({route, params, routes, paths,routeItem},'UUUUUUUUUUUUUUUUUUUUU')
-        return first ? (
-          <Link to={'./'}>{route.breadcrumbName}</Link>
-        ) : (
-          // <Link to={`./${routeItem}`}>{route.breadcrumbName}</Link>
-          <span>{route.breadcrumbName}</span>
-        )
-      }}
-      footerRender={() => defaultFooterDom}
-      menuDataRender={menuDataRender}
-      menuRender={false}
-      // rightContentRender={() => <RightContent />}
-      {...props}
-      {...settings}
-    >
-      <Authorized authority={authorized.authority} noMatch={noMatch}>
-        {children}
-      </Authorized>
-    </ProLayout>
+          return <Link to={menuItemProps.path}>{defaultDom}</Link>
+        }}
+        breadcrumbRender={(routers = []) => [
+          // {
+          //   path: '/',
+          //   breadcrumbName: formatMessage({
+          //     id: 'menu.home',
+          //   }),
+          // },
+          ...routers,
+        ]}
+        itemRender={(route, params, routes, paths) => {
+          const first = routes.indexOf(route) === 0
+          const routeItem = route.path.split('/').pop()
+          // console.log({route, params, routes, paths,routeItem},'UUUUUUUUUUUUUUUUUUUUU')
+          return first ? (
+            <Link to={'./'}>{route.breadcrumbName}</Link>
+          ) : (
+            // <Link to={`./${routeItem}`}>{route.breadcrumbName}</Link>
+            <span>{route.breadcrumbName}</span>
+          )
+        }}
+        footerRender={() => defaultFooterDom}
+        menuDataRender={menuDataRender}
+        menuRender={false}
+        // rightContentRender={() => <RightContent />}
+        {...props}
+        {...settings}
+      >
+        <Authorized authority={authorized.authority} noMatch={noMatch}>
+          {children}
+        </Authorized>
+      </ProLayout>
+      <SettingDrawer
+        settings={settings}
+        onSettingChange={(config) =>
+          dispatch({
+            type: 'settings/changeSetting',
+            payload: config,
+          })
+        }
+      />
+    </>
   )
 }
 

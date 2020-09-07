@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-26 10:22:43
+ * @LastEditTime: 2020-09-07 11:01:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \weath\config\proxy.js
+ */
 /**
  * 在生产环境 代理是无法生效的，所以这里没有生产环境的配置
  * The agent cannot take effect in the production environment
@@ -6,6 +14,22 @@
  * https://pro.ant.design/docs/deploy
  */
 export default {
+  // dev: {
+  //   '/testApi/': {
+  //     //liuliang本地服务
+  //     target: 'http://172.28.129.58:8581',
+  //     changeOrigin: true,
+  //     pathRewrite: {
+  //       '^/testApi': '',
+  //     },
+  //     // '/testApi/': {//开发环境
+  //     //   target: 'http://192.168.22.47:8765',
+  //     //   changeOrigin: true,
+  //     //   pathRewrite: {
+  //     //     '^/testApi': '',
+  //     //   },
+  //   },
+  // },
   dev: {
     '/api/': {
       target: 'https://preview.pro.ant.design',
