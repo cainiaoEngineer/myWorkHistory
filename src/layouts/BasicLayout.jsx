@@ -128,14 +128,48 @@ const BasicLayout = (props) => {
           ...routers,
         ]}
         itemRender={(route, params, routes, paths) => {
-          const first = routes.indexOf(route) === 0
-          const routeItem = route.path.split('/').pop()
-          // console.log({route, params, routes, paths,routeItem},'UUUUUUUUUUUUUUUUUUUUU')
-          return first ? (
-            <Link to={'./'}>{route.breadcrumbName}</Link>
+          // console.log(
+          //   'route',
+          //   route,
+          //   'params',
+          //   params,
+          //   'routes',
+          //   routes,
+          //   'paths=',
+          //   paths
+          // )
+          // const last = routes.indexOf(route) === routes.length - 1
+          // const middle = routes.indexOf(route) === routes.length - 2
+          // const indexNum = routes.indexOf(route)
+          // console.log(paths, '当前路径', paths.join('/'))
+          // return last ? (
+          //   <span>{route.breadcrumbName}</span>
+          // ) : middle ? (
+          //   <Link to={`./`}>{route.breadcrumbName}</Link>
+          // ) : (
+          //   <Link to={paths[0]}>{route.breadcrumbName}</Link>
+          // )
+
+          const last = routes.indexOf(route) == routes.length - 1
+          let str = ''
+          if (!last) {
+            let arr = []
+            for (
+              let i = 0;
+              i < routes.length - 1 - routes.indexOf(route);
+              i++
+            ) {
+              arr.push('.')
+            }
+            str = arr.join('')
+            console.log(str, 'jjjjjj')
+          }
+
+          return last ? (
+            <span>{route.breadcrumbName}</span>
           ) : (
             // <Link to={`./${routeItem}`}>{route.breadcrumbName}</Link>
-            <span>{route.breadcrumbName}</span>
+            <Link to={`${str}/`}>{route.breadcrumbName}</Link>
           )
         }}
         footerRender={() => defaultFooterDom}

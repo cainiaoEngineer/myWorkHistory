@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-08-26 10:22:46
- * @LastEditTime: 2020-09-04 17:32:42
+ * @LastEditTime: 2020-09-10 10:24:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \weath\src\locales\zh-CN\menu.js
  */
 export default {
-  'menu.welcome': '监控邮件配置系统',
+  'menu.welcome': '财富宝首页',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.admin': '管理页',
@@ -60,7 +60,6 @@ export default {
   'menu.editor.koni': '拓扑编辑器',
   'menu.orderInfo': '订单信息',
   'menu.costInfo': '财富宝费用信息',
-  'menu.paying': '费用明细（计费中）',
-  'menu.Deductioning': '费用明细（待扣款、扣款成功、扣款失败）',
+  'menu.paying': '费用明细',
   'menu.HistoryList': '历史账单',
 }

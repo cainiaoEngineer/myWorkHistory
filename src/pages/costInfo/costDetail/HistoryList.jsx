@@ -20,16 +20,22 @@ import {
 import ProTable from '@ant-design/pro-table'
 import moment from 'moment'
 import { queryRule, updateRule, addRule, removeRule } from './service'
-
-const { TabPane } = Tabs
+const routes = [
+  {
+    path: '/orderInfo',
+    breadcrumbName: '订单信息',
+  },
+  {
+    path: '/costInfo',
+    breadcrumbName: '财富宝费用信息',
+  },
+  {
+    breadcrumbName: '历史账单',
+  },
+]
 
 const OrderInfo = () => {
-  const [createModalVisible, handleModalVisible] = useState(false)
-  const [updateModalVisible, handleUpdateModalVisible] = useState(false)
-  const [stepFormValues, setStepFormValues] = useState({})
   const actionRef = useRef()
-  const [selectedRowsState, setSelectedRows] = useState([])
-  const [date, setDates] = useState([])
   const columns = [
     {
       title: '账单日期',
@@ -56,8 +62,6 @@ const OrderInfo = () => {
         0: { text: '全部' },
         1: { text: '签约中' },
         2: { text: '已退订' },
-        3: { text: '审核未通过' },
-        4: { text: '待审核' },
       },
       formItemProps: {
         defaultValue: '全部',
@@ -121,12 +125,14 @@ const OrderInfo = () => {
     },
   ]
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper breadcrumb={{ routes }}>
       <Card>
         <ProTable
           scroll={{ x: 1300 }}
           actionRef={actionRef}
           rowKey="key"
+          bordered={true}
+          size="small"
           request={(params, sorter, filter) =>
             queryRule({ ...params, sorter, filter })
           }

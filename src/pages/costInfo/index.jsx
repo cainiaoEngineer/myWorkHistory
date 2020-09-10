@@ -24,6 +24,17 @@ import ProTable from '@ant-design/pro-table'
 import { queryRule, updateRule, addRule, removeRule } from './service'
 import styles from './index.less'
 
+const routes = [
+  {
+    path: '/orderInfo',
+    breadcrumbName: '订单信息',
+  },
+  {
+    path: '/costInfo',
+    breadcrumbName: '财富宝费用信息',
+  },
+]
+
 const columnsTable = [
   {
     title: '账单日期',
@@ -122,7 +133,7 @@ const dataSource = [
 const CostInfo = () => {
   const [visible, setVisible] = useState('list1')
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper breadcrumb={{ routes }}>
       <Card>
         <div className="titleCenter">
           <Row gutter={16}>

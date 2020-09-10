@@ -1,15 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons'
-import {
-  Button,
-  Divider,
-  message,
-  Input,
-  Form,
-  Row,
-  Col,
-  Tabs,
-  Card,
-} from 'antd'
+import { Tabs, Card } from 'antd'
 import { Link } from 'umi'
 import React, { useState, useRef } from 'react'
 import {
@@ -108,6 +98,8 @@ const OrderInfo = () => {
               headerTitle="监控邮件列表"
               actionRef={actionRef}
               rowKey="key"
+              bordered={true}
+              size="small"
               request={(params, sorter, filter) =>
                 queryRule({ ...params, sorter, filter })
               }

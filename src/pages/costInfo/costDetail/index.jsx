@@ -20,6 +20,20 @@ import {
 } from '@ant-design/pro-layout'
 import ProTable from '@ant-design/pro-table'
 import { queryRule, updateRule, addRule, removeRule } from './service'
+import styles from './index.less'
+const routes = [
+  {
+    path: '/orderInfo',
+    breadcrumbName: '订单信息',
+  },
+  {
+    path: '/costInfo',
+    breadcrumbName: '财富宝费用信息',
+  },
+  {
+    breadcrumbName: '费用明细',
+  },
+]
 
 const OrderInfo = () => {
   const actionRef = useRef()
@@ -54,7 +68,7 @@ const OrderInfo = () => {
     },
   ]
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper breadcrumb={{ routes }}>
       <Card>
         <div className="setTableSty">
           <ProTable
