@@ -134,9 +134,22 @@ const CostInfo = () => {
   const [visible, setVisible] = useState('list1')
   return (
     <PageHeaderWrapper breadcrumb={{ routes }}>
-      <Card>
+      <Card
+        className="extraMargin"
+        title={'张三 财富宝账单信息'}
+        extra={
+          <Link
+            to={{
+              pathname:
+                '/orderInfo/costInfo/HistoryList' /*  state: { id: name }, */,
+            }}
+          >
+            {'查看历史账单 >>'}
+          </Link>
+        }
+      >
         <div className="titleCenter">
-          <Row gutter={16}>
+          <Row gutter={30}>
             <Col
               span={8}
               className={visible == 'list1' ? 'titleBlue' : 'titleGray'}
@@ -176,6 +189,7 @@ const CostInfo = () => {
               className={visible == 'list2' ? 'titleBlue' : 'titleGray'}
             >
               <Popover
+                placement="bottom"
                 content={
                   <Table
                     columns={columnsTable}
@@ -187,22 +201,22 @@ const CostInfo = () => {
                 }
                 trigger="click"
                 visible={visible == 'list2'}
-                // placement="bottomRight"
                 onVisibleChange={() => {
                   setVisible('list2')
                 }}
               >
-                <Card
-                  type="inner"
-                  title={<div className={styles.cardTitle}>未出账单</div>}
-                  style={{ marginLeft: 14 }}
-                >
-                  <div style={{ fontSize: 16 }}>已计费用</div>
-                  <div style={{ fontSize: 36, fontWeight: 'bold' }}>
-                    ￥8989.40
-                  </div>
-                  <div style={{ fontSize: 16 }}>预计扣款日期:2020.07.05</div>
-                </Card>
+                <div className="rightCard">
+                  <Card
+                    type="inner"
+                    title={<div className={styles.cardTitle}>未出账单</div>}
+                  >
+                    <div style={{ fontSize: 16 }}>已计费用</div>
+                    <div style={{ fontSize: 36, fontWeight: 'bold' }}>
+                      ￥8989.40
+                    </div>
+                    <div style={{ fontSize: 16 }}>预计扣款日期:2020.07.05</div>
+                  </Card>
+                </div>
               </Popover>
             </Col>
           </Row>
@@ -245,5 +259,8 @@ const CostInfo = () => {
     </PageHeaderWrapper>
   )
 }
-
 export default CostInfo
+// export default connect(({ billListDetail, loading }) => ({
+//   billListDetail, //可以直接结构出state
+//   loading: loading.model.billListDetail,
+// }))(CostInfo)

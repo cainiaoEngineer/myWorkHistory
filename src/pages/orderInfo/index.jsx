@@ -9,6 +9,8 @@ import {
 } from '@ant-design/pro-layout'
 import ProTable from '@ant-design/pro-table'
 import { queryRule, updateRule, addRule, removeRule } from './service'
+import styles from './index'
+import { columns1, columns2, columns3, columns4 } from './tbColumns'
 
 const { TabPane } = Tabs
 
@@ -95,7 +97,6 @@ const OrderInfo = () => {
         <Tabs defaultActiveKey="1" /* onChange={callback} */>
           <TabPane tab="财富工作室" key="1">
             <ProTable
-              headerTitle="监控邮件列表"
               actionRef={actionRef}
               rowKey="key"
               bordered={true}
@@ -107,7 +108,7 @@ const OrderInfo = () => {
                 pageSizeOptions: ['10', '20', '50'],
                 defaultPageSize: 10,
               }}
-              columns={columns}
+              columns={columns1}
               options={false}
               collapsed={false}
               search={{
@@ -120,13 +121,82 @@ const OrderInfo = () => {
             />
           </TabPane>
           <TabPane tab="投顾工作室" key="2">
-            Content of Tab Pane 2
+            <ProTable
+              scroll={{ x: 1200 }}
+              actionRef={actionRef}
+              rowKey="key"
+              bordered={true}
+              size="small"
+              request={(params, sorter, filter) =>
+                queryRule({ ...params, sorter, filter })
+              }
+              pagination={{
+                pageSizeOptions: ['10', '20', '50'],
+                defaultPageSize: 10,
+              }}
+              columns={columns2}
+              options={false}
+              collapsed={false}
+              search={{
+                span: 8,
+                resetText: '',
+                searchText: '搜索',
+                collapsed: false,
+                collapseRender: () => false,
+              }}
+            />
           </TabPane>
           <TabPane tab="LEVEL-2行情" key="3">
-            Content of Tab Pane 3
+            <ProTable
+              scroll={{ x: 1200 }}
+              actionRef={actionRef}
+              rowKey="key"
+              bordered={true}
+              size="small"
+              request={(params, sorter, filter) =>
+                queryRule({ ...params, sorter, filter })
+              }
+              pagination={{
+                pageSizeOptions: ['10', '20', '50'],
+                defaultPageSize: 10,
+              }}
+              columns={columns3}
+              options={false}
+              collapsed={false}
+              search={{
+                span: 8,
+                resetText: '',
+                searchText: '搜索',
+                collapsed: false,
+                collapseRender: () => false,
+              }}
+            />
           </TabPane>
           <TabPane tab="AI工作室" key="4">
-            Content of Tab Pane 3
+            <ProTable
+              scroll={{ x: 1200 }}
+              actionRef={actionRef}
+              rowKey="key"
+              bordered={true}
+              size="small"
+              request={(params, sorter, filter) =>
+                queryRule({ ...params, sorter, filter })
+              }
+              pagination={{
+                pageSizeOptions: ['10', '20', '50'],
+                defaultPageSize: 10,
+              }}
+              columns={columns4}
+              options={false}
+              collapsed={false}
+              search={{
+                span: 8,
+                resetText: '',
+                searchText: '搜索',
+                collapsed: false,
+                collapseRender: () => false,
+              }}
+            />
           </TabPane>
         </Tabs>
       </Card>

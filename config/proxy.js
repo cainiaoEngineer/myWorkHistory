@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-26 10:22:43
- * @LastEditTime: 2020-09-07 11:01:27
+ * @LastEditTime: 2020-09-14 15:56:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \weath\config\proxy.js
@@ -31,6 +31,20 @@ export default {
   //   },
   // },
   dev: {
+    '/api/': {
+      target: 'https://preview.pro.ant.design',
+      changeOrigin: true,
+      pathRewrite: {
+        '^': '',
+      },
+    },
+    '/api/': {
+      target: 'https://preview.pro.ant.design',
+      changeOrigin: true,
+      pathRewrite: {
+        '^': '',
+      },
+    },
     '/api/': {
       target: 'https://preview.pro.ant.design',
       changeOrigin: true,

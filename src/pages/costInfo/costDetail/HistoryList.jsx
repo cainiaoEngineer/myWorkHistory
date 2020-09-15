@@ -40,6 +40,7 @@ const OrderInfo = () => {
     {
       title: '账单日期',
       order: 2,
+      align: 'center',
       dataIndex: 'name',
       //   tip: '规则名称是唯一的 key',
       valueType: 'dateRange',
@@ -56,6 +57,7 @@ const OrderInfo = () => {
     },
     {
       title: '支付状态',
+      align: 'center',
       order: 3,
       dataIndex: 'desc',
       valueEnum: {
@@ -70,35 +72,41 @@ const OrderInfo = () => {
     },
     {
       title: '支付订单编号',
+      align: 'center',
       dataIndex: 'callNo',
       hideInSearch: true,
     },
     {
       title: '应扣费用(元)',
+      align: 'center',
       dataIndex: 'option',
       valueType: 'option',
       hideInSearch: true,
     },
     {
       title: '实扣费用(元)',
+      align: 'center',
       dataIndex: 'option',
       valueType: 'option',
       hideInSearch: true,
     },
     {
       title: '计费开始日',
+      align: 'center',
       dataIndex: 'option',
       valueType: 'option',
       hideInSearch: true,
     },
     {
       title: '计费截止日',
+      align: 'center',
       dataIndex: 'option',
       valueType: 'option',
       hideInSearch: true,
     },
     {
       title: '扣款时间',
+      align: 'center',
       dataIndex: 'option',
       valueType: 'option',
       hideInSearch: true,

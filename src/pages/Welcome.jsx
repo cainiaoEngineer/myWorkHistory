@@ -23,7 +23,6 @@ export default () => (
             pathname: '/orderInfo',
           }}
         >
-          {' '}
           <Card
             title="客户视图-增值服务-订单信息（财富宝）"
             hoverable
@@ -36,10 +35,9 @@ export default () => (
       <Col span={12}>
         <Link
           to={{
-            pathname: '/orderInfo/costInfo/costDetail/Deductioning',
+            pathname: '/orderInfo/costInfo/paying',
           }}
         >
-          {' '}
           <Card title="费用信息" hoverable bordered={false}>
             <Meta title="祖清华" description="负责人" />
           </Card>
@@ -50,15 +48,10 @@ export default () => (
       <Col span={12}>
         <Link
           to={{
-            pathname: '/orderInfo/costInfo/costDetail/HistoryList',
+            pathname: '/orderInfo/costInfo/HistoryList',
           }}
         >
-          {' '}
-          <Card
-            title="费用明细(计费中\待扣款、扣款成功、扣款失败\历史账单)"
-            hoverable
-            bordered={false}
-          >
+          <Card title="历史账单" hoverable bordered={false}>
             <Meta title="祖清华" description="负责人" />
           </Card>
         </Link>

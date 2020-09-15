@@ -17,14 +17,14 @@ body,
   font-size: 16px;
 }
 :global {
-  // .titleCenter {
-  //   .ant-descriptions-item {
-  //     text-align: center;
-  //   }
-  //   .ant-descriptions-item-container {
-  //     display: inline;
-  //   }
-  // }
+  .ant-table-small .ant-table-thead > tr > th {
+    background-color: #ebf6ff;
+  }
+  .extraMargin {
+    .ant-card-extra {
+      margin-right: calc(33.33% + 15px);
+    }
+  }
   .ant-popover-inner,
   .ant-card-bordered {
     box-shadow: none;
@@ -54,5 +54,8 @@ body,
       background: #cccccc;
       color: #fff;
     }
+  }
+  .ant-card-head-title {
+    font-weight: bold;
   }
 }
