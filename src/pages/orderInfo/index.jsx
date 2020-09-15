@@ -9,7 +9,7 @@ import {
 } from '@ant-design/pro-layout'
 import ProTable from '@ant-design/pro-table'
 import { queryRule, updateRule, addRule, removeRule } from './service'
-import styles from './index'
+import styles from './index.less'
 import { columns1, columns2, columns3, columns4 } from './tbColumns'
 
 const { TabPane } = Tabs
